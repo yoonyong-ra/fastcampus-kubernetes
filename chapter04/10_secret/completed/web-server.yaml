@@ -36,6 +36,9 @@ metadata:
     name: nginx
 spec:
   volumes: # Pod에서 사용할 볼륨 목록 선언 
+  - name: tls
+    secret:
+      secretName: tls-config
   - name: app-config  # 컨테이너에서 참조할 볼륨 이름
     configMap:
       name: nginx-config  # 참조할 ConfigMap 이름
